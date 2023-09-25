@@ -1,13 +1,16 @@
-import './globals.css'
+import { ReactQueryProvider } from "./ReactQueryProvider";
+import "./globals.css";
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
-    </html>
-  )
+    <ReactQueryProvider>
+      <html lang="en">
+        <body>{children}</body>
+      </html>
+    </ReactQueryProvider>
+  );
 }
