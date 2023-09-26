@@ -2,8 +2,9 @@
 
 import React, { useEffect } from "react";
 import axios from "axios";
-import GitHubUser from "../interfaces";
+import GitHubUser from "../utils/interfaces";
 import { useQuery } from "@tanstack/react-query";
+import Dashboard from "../components/dashboard";
 
 export const resume = () => {
   const { data, isLoading, isError } = useQuery<GitHubUser>({
@@ -18,7 +19,15 @@ export const resume = () => {
   if (isLoading) return "Loading ...";
   if (isError) return "An error has occured ";
 
-  return <div>{data && <div>{data.name}</div>}</div>;
+  return (
+    <div>
+      {data ? (
+        <Dashboard data={data} />
+      ) : (
+        "Failed to retrieve data from the server"
+      )}
+    </div>
+  );
 };
 
 export default resume;
