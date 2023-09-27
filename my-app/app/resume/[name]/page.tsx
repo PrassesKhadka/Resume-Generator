@@ -2,17 +2,26 @@
 
 import React, { useEffect } from "react";
 import axios from "axios";
-import GitHubUser from "../utils/interfaces";
+import GitHubUser from "../../utils/interfaces";
 import { useQuery } from "@tanstack/react-query";
-import Dashboard from "../components/dashboard";
+import Dashboard from "../../components/dashboard";
 
-export const resume = () => {
+interface Params {
+  name: string;
+}
+
+interface Props {
+  params: Params;
+}
+
+export const resume = ({ params }: Props) => {
   const { data, isLoading, isError } = useQuery<GitHubUser>({
     queryKey: ["user"],
     queryFn: async () => {
-      const req = axios.get("https://api.github.com/users/prasseskhadka");
-      const res = await req;
-      return res.data;
+      const { data } = await axios.get(
+        `https://api.github.com/users/${params.name}`
+      );
+      return data;
     },
   });
 

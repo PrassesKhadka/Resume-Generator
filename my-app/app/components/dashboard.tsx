@@ -7,8 +7,8 @@ interface Props {
 
 export const Dashboard = ({ data }: Props) => {
   return (
-    <div className="border-8 border-yellow h-screen w-screen flex flex-col bg-red-300 justify-center items-center">
-      <div className="border-2 border-black p-10">
+    <div className="border-8 border-yellow flex flex-col bg-red-300 justify-center items-center">
+      <div className="border-2 border-black p-10 h-full w-full bg-blue-400">
         {/* name,email and photo */}
         <div className="flex flex-col items-center justify-center">
           <div className="h-[150px] w-[150px] rounded-full border-5 border-blue">
@@ -18,7 +18,7 @@ export const Dashboard = ({ data }: Props) => {
               className="w-full h-full object-cover rounded-full"
             ></img>
           </div>
-          <h1>{data.name}</h1>
+          <h1 className="m-1">{data.name}</h1>
           <a href={data.html_url}>@github</a>
         </div>
 
@@ -44,9 +44,9 @@ export const Dashboard = ({ data }: Props) => {
         </div>
 
         {/* info and bio */}
-        <div className="flex items-center justify-between border-2">
+        <div className="flex items-start justify-between border-2">
           {/* info */}
-          <div className="grid grid-row-3 grid-cols-2 border-2 m-5 p-2 border-black h-full w-full bg-white">
+          <div className="flex-1 grid grid-row-3 grid-cols-2 border-2 m-5 p-2 border-black h-full w-full bg-white">
             <div>
               <p>Email</p>
               <p>{!data.email ? "-" : data.email}</p>
@@ -69,12 +69,15 @@ export const Dashboard = ({ data }: Props) => {
             </div>
             <div>
               <p>Website</p>
-              <p>{!data.blog ? "-" : data.blog}</p>
+              <a href={data.blog}>{!data.blog ? "-" : data.blog}</a>
             </div>
           </div>
 
           {/* bio */}
-          <div className="h-full w-full border-2 border-black m-5 p-2">
+          <div
+            className="flex-1 border-2 border-black m-5 p-2 bg-yellow-300 min-h-fit
+          "
+          >
             <h1>Bio</h1>
             <p>{data.bio}</p>
           </div>
