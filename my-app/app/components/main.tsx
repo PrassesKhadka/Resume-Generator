@@ -12,10 +12,10 @@ export const Main = () => {
         <h2 className="text-slate-400 -mt-2 mb-4">
           Generate your Github Profile
         </h2>
-        <form>
+        <form className="items-center">
           <input
             onChange={(e) => {
-              setName(e.target.value);
+              setName(e.target.value.trim().split(" ").join(""));
             }}
             type="text"
             placeholder="Github Username"

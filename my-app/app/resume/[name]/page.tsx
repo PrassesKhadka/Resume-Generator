@@ -29,7 +29,7 @@ export const resume = ({ params }: Props) => {
   if (isError) return "An error has occured ";
 
   return (
-    <div>
+    <div className="h-full w-full p-10">
       {data ? (
         <Dashboard data={data} />
       ) : (
