@@ -2,6 +2,7 @@ import React from "react";
 import GitHubUser from "../utils/interfaces";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import Image from "next/image";
 
 interface Props {
   data: GitHubUser;
@@ -22,7 +23,7 @@ export const Dashboard = ({ data }: Props) => {
                 Hire Me
               </button>
             ) : (
-              <button className="bg-slate-300 hover:cursor-not-allowed text-white pr-12 pl-12 pt-1 pb-1 rounded-sm">
+              <button className="bg-red-700 hover:cursor-not-allowed text-white pr-12 pl-12 pt-1 pb-1 rounded-sm">
                 Hire Me
               </button>
             )}
@@ -33,11 +34,13 @@ export const Dashboard = ({ data }: Props) => {
             {/* name,email and photo */}
             <div className="flex flex-col items-center justify-center">
               <div className="h-[120px] w-[120px] -mt-12 rounded-full border-5 border-blue">
-                <img
+                <Image
+                  height={120}
+                  width={120}
                   src={data.avatar_url}
                   alt={`${data.name} profile image`}
                   className="w-full h-full object-cover rounded-full"
-                ></img>
+                ></Image>
               </div>
               <h1 className="m-1">{data.name}</h1>
               <a href={data.html_url} className="-mt-2">

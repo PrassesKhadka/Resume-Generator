@@ -1,3 +1,5 @@
+"use client";
+
 import axios from "axios";
 import GitHubUser from "../../utils/interfaces";
 import { useQuery } from "@tanstack/react-query";
