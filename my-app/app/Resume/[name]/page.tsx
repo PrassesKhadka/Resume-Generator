@@ -37,16 +37,16 @@ export const Resume = ({ params }: Props) => {
         An error has occured while fetching data
       </div>
     );
-
-  return (
-    <div className="h-full w-full p-10">
-      {data ? (
-        <Dashboard data={data} />
-      ) : (
-        "Failed to retrieve data from the server"
-      )}
-    </div>
-  );
+  else
+    return (
+      <div className="h-full w-full p-10">
+        {data ? (
+          <Dashboard data={data} />
+        ) : (
+          "Failed to retrieve data from the server"
+        )}
+      </div>
+    );
 };
 
 export default Resume;
