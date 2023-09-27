@@ -4,6 +4,7 @@ import axios from "axios";
 import GitHubUser from "../../utils/interfaces";
 import { useQuery } from "@tanstack/react-query";
 import Dashboard from "../../components/dashboard";
+import { Loader } from "lucide-react";
 
 interface Params {
   name: string;
@@ -24,8 +25,18 @@ export const Resume = ({ params }: Props) => {
     },
   });
 
-  if (isLoading) return "Loading ...";
-  if (isError) return "An error has occured ";
+  if (isLoading)
+    return (
+      <div className="flex justify-center items-center h-screen w-screen">
+        <Loader className="animate-spin" />
+      </div>
+    );
+  if (isError)
+    return (
+      <div className="text-2xl font-semibold uppercase flex justify-center items-center h-screen w-screen">
+        An error has occured while fetching data
+      </div>
+    );
 
   return (
     <div className="h-full w-full p-10">
