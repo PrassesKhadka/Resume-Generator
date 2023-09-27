@@ -1,6 +1,3 @@
-"use client";
-
-import React, { useEffect } from "react";
 import axios from "axios";
 import GitHubUser from "../../utils/interfaces";
 import { useQuery } from "@tanstack/react-query";
@@ -14,7 +11,7 @@ interface Props {
   params: Params;
 }
 
-export const resume = ({ params }: Props) => {
+export const Resume = ({ params }: Props) => {
   const { data, isLoading, isError } = useQuery<GitHubUser>({
     queryKey: ["user"],
     queryFn: async () => {
@@ -39,4 +36,4 @@ export const resume = ({ params }: Props) => {
   );
 };
 
-export default resume;
+export default Resume;
