@@ -21,7 +21,7 @@ export const Main = () => {
             placeholder="Github Username"
             className="p-1 outline-none border-2 border-slate-400 rounded-sm"
           ></input>
-          <Link href={`resume/${name}`}>
+          <Link href={`Resume/${name}`}>
             <button
               type="submit"
               className="bg-orange hover:bg-red-200 text-white text-center text-sm pr-8 pl-8 pt-1 pb-1 ml-3 rounded-md"
