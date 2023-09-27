@@ -14,7 +14,7 @@ interface Props {
   params: Params;
 }
 
-export const Resume = ({ params }: Props) => {
+const Resume = ({ params }: Props) => {
   const { data, isLoading, isError } = useQuery<GitHubUser>({
     queryKey: ["user"],
     queryFn: async () => {
